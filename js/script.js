@@ -35,6 +35,21 @@ if (document.getElementById('registrationForm')) {
             return emailRegex.test(email);
         }
 
+        // Helper function to validate birthday
+        function isValidDate(day, month, year) {
+            if (year.length !== 4 || isNaN(year)) return false; // Year must be 4 digits
+            if (month < 1 || month > 12 || isNaN(month)) return false; // Month must be 1–12
+            if (day < 1 || day > 31 || isNaN(day)) return false; // Day must be 1–31
+
+            const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            const leapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+
+            if (month == 2 && leapYear) {
+                return day <= 29; // February leap year
+            }
+            return day <= daysInMonth[month - 1]; // Check day for other months
+        }
+
         // Validate name
         if (!name) {
             alert('Please insert a name.');
@@ -42,8 +57,8 @@ if (document.getElementById('registrationForm')) {
         }
 
         // Validate birthday
-        if (!day || !month || !year || isNaN(day) || isNaN(month) || isNaN(year)) {
-            alert('Please insert a valid birthday in DD/MM/YYYY format.');
+        if (!isValidDate(day, month, year)) {
+            alert('Please insert a valid birthday (DD/MM/YYYY).');
             hasError = true;
         }
 
