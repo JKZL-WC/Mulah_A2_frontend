@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULAH - Registration</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="mulah.avif" alt="MULAH" class="logo">
+        <h1 class="registration-title">Registration</h1>
+        <p class="subtitle">Please fill up your details.</p>
+
+        <form id="registrationForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter Name">
+
+            <label for="birthday">Birthday</label>
+            <div class="birthday-group">
+                <input type="text" id="day" placeholder="DD" maxlength="2">
+                <input type="text" id="month" placeholder="MM" maxlength="2">
+                <input type="text" id="year" placeholder="YYYY" maxlength="4">
+            </div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email Address">
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="noEmail">
+                <label for="noEmail">No email address</label>
+            </div>
+
+            <button type="submit" id="submitBtn" class="primary-btn">Continue</button>
+        </form>
+
+        <footer>
+            Powered by <a href="https://mulahrewards.com" target="_blank">MulahRewards.com</a>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
